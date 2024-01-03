@@ -34,7 +34,7 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'put', 'path']
     
 class ListaMatriculasAluno(generics.ListAPIView):
-    """Listando as matrículas de um aluno ou aluna"""
+    """Listando as matrículas de um aluno(a)"""
     def get_queryset(self):
         queryset = Matricula.objects.filter(aluno_id=self.kwargs['pk'])
         return queryset

@@ -41,7 +41,7 @@ class ListaMatriculasAluno(generics.ListAPIView):
     serializer_class = ListaMatriculasAlunoSerializer
     
 class ListaAlunosMatriculados(generics.ListAPIView):
-    """Listando alunos(as) matriculados em um curso"""
+    """Listando alunos(as) matriculados em um curso """
     def get_queryset(self):
         queryset = Matricula.objects.filter(curso_id=self.kwargs['pk'])
         return queryset

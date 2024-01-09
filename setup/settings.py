@@ -45,12 +45,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'setup.urls'
@@ -129,15 +129,19 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated', 
     #     'rest_framework.permissions.DjangoModelPermissions'
     # ], 
-    'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework.authentication.BasicAuthentication'
-    ], 
+    # 'DEFAULT_AUTHENTICATION_CLASSES':[
+    #     'rest_framework.authentication.BasicAuthentication'
+    # ], 
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle', #Usuário Anonimo
         # 'rest_framework.throttling.UserRateThrottle' #Qualquer usuário
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '5/day',
+        'anon': '100/day',
         # 'user': '1000/day'
     }
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://locahost:3000"
+]

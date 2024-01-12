@@ -14,4 +14,3 @@ urlpatterns = [
     path('alunos/<int:pk>/matriculas/', ListaMatriculasAluno.as_view()),
     path('cursos/<int:pk>/matriculas/', ListaAlunosMatriculados.as_view())
 ]
-
